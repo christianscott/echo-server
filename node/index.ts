@@ -8,7 +8,7 @@ const server = net.createServer((connection) => {
     const [current, ...remainingLines] = data.split('\n');
     if (remainingLines.length > 0) {
       connection.write([...buffer, current, '\n'].join(''));
-      buffer.push(...remainingLines);
+      buffer = remainingLines;
     } else {
       buffer.push(current);
     }
