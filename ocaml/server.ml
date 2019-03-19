@@ -1,11 +1,8 @@
 open Unix
-open Printf
-open String
-open Thread
 
 let rec echo_line cin cout =
   let client_message = input_line cin in
-  fprintf cout "%s\n" client_message;
+  Printf.fprintf cout "%s\n" client_message;
   flush cout;
   if String.length client_message > 0 then
     echo_line cin cout
